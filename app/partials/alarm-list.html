@@ -1,0 +1,8 @@
+<h2>Alarms</h2>
+<div>{{ loadStatus }}</div>
+<input ng-model="query" type="text"/>
+<ul>
+  <li ng-repeat="alarm in alarms | filter:query">
+    <a href="#/entities/{{ entityId }}/alarms/{{ alarm.id }}">{{ alarm.label }}({{ alarm.id }})</a>
+  </li>
+</ul>

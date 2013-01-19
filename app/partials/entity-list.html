@@ -1,0 +1,8 @@
+<h2>Entities</h2>
+<div>{{ loadStatus }}</div>
+<input ng-model="query" type="text"/>
+<ul>
+  <li ng-repeat="entity in entities | filter:query">
+    <a href="#/entities/{{ entity.id }}/checks">{{ entity.label }}</a>
+  </li>
+</ul>
