@@ -3,7 +3,6 @@ This illustrates how to hit the Rackspace cloud monitoring API to load real metr
 
 ## Setup
 - clone this repo
-- run `npm install`
 - run `scripts/web-server.js`
 - `git clone git://github.com/sym3tri/monprox.git` (a simple pass-thru proxy that does auth for you)
 - put your creds into `monprox/config.json`
