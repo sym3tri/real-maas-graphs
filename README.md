@@ -8,4 +8,4 @@ This illustrates how to hit the Rackspace cloud monitoring API to load real metr
 - from `monprox/` run `npm install`
 - put your creds into `monprox/config.json`
 - run `node monprox.js`
-- point your browser to `http://localhost:8000`
+- point your browser to `http://localhost:8000/app/index.html`
