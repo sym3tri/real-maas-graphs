@@ -2,7 +2,7 @@
 <html lang="en" ng-app="dashboard">
   <head>
     <meta charset="utf-8">
-    <title>Angular Test</title>
+    <title>Cloud Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Le styles -->
@@ -21,50 +21,89 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">Cloud Dashboard</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
               Logged in as <a href="#" class="navbar-link">Username</a>
             </p>
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#/view1">View 1</a></li>
-              <li><a href="#/view2">View 2</a></li>
+              <li class="active"><a href="#/grapher/entities">Grapher</a></li>
+              <!--<li><a href="#/view1">View 1</a></li>-->
+              <!--<li><a href="#/view2">View 2</a></li>-->
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
+
+    <div class="container-fluid" ng-controller="MainCtrl">
+
+      <!--<div id="global-status-msg" class="alert">status</div>-->
+
+      <!-- status bar -->
       <div class="row-fluid">
+        <div id="series-list" class="span3">
 
-        <div class="span9">
-          <div class="row-fluid">
+          <div ng-repeat="series in dataSeries">
+            <span class="label series-label" ng-click="removeDataSeries()">
+              {{ series.title }} <i class="icon-remove icon-white"></i>
+            </span>
+          </div>
 
-            <div ng-view class="span10"></div>
+        </div>
+        <div id="main-graph" class="span6" gl-graph></div>
+        <div class="span3">
+          <div class="btn-group date-selector">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              Date Range
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- dropdown menu links -->
+              <li><a href="" ng-click="setTimeRange(3600000)">1 Hour</a></li>
+              <li><a href="" ng-click="setTimeRange(86400000)">1 Day</a></li>
+              <li><a href="" ng-click="setTimeRange(604800000)">7 Days</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-          </div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->
 
       <hr>
 
+
+      <!-- enitty/check/metric selectors -->
+      <div class="row-fluid">
+        <!-- sidebar -->
+        <div class="span4" ui-view="entityselector"></div>
+        <!-- checks -->
+        <div class="span4" ui-view="checkselector"></div>
+        <!-- metrics -->
+        <div class="span4" ui-view="metricselector"></div>
+      </div>
+
+
+      <hr>
+
+
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; Rackspace - Glimpse 2013</p>
       </footer>
 
-    </div><!--/.fluid-container-->
+    </div><!--/container-fluid-->
 
-    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-1.0.4.js"></script>
     <script src="lib/angular/angular-resource.js"></script>
     <script src="lib/jquery.js"></script>
     <script src="lib/bootstrap.js"></script>
+    <script src="lib/glimpse.js"></script>
+    <script src="lib/angular-ui.min.js"></script>
+    <script src="lib/angular-ui-states.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/directives.js"></script>
-
   </body>
 </html>

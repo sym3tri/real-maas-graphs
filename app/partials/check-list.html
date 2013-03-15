@@ -1,8 +1,12 @@
-<h2>Checks</h2>
-<div>{{ loadStatus }}</div>
-<input ng-model="query" type="text"/>
-<ul>
-  <li ng-repeat="check in checks | filter:query">
-    <a href="#/entities/{{ entityId }}/alarms">{{ check.label }}</a>
-  </li>
-</ul>
+<h4>CHECKS<span>{{ loadStatus }}</span></h4>
+<p>
+  <input ng-model="query" type="text" class="input-medium search-query"/>
+</p>
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li ng-repeat="check in checks | filter:query"
+        ng-class="{ active: $state.includes('grapher.entity.check') && $stateParams.checkId == check.id }">
+      <a href="#/grapher/entities/{{ entityId }}/checks/{{ check.id }}/metrics">{{ check.label }}</a>
+    </li>
+  </ul>
+</div>

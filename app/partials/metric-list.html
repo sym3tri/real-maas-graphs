@@ -1,0 +1,12 @@
+<h4>METRICS<span>{{ loadStatus }}</span></h4>
+<p>
+  <input ng-model="query" type="text" class="input-medium search-query"/>
+</p>
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li ng-repeat="metric in metrics | filter:query">
+      <a href="#/grapher/entities/{{ entityId }}/checks/{{ checkId }}/metrics/{{ metric.name }}/plot">{{ metric.name }}</a>
+      <!--<a ng-click="addSeries()">{{ metric.name }}</a>-->
+    </li>
+  </ul>
+</div>

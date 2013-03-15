@@ -36,3 +36,29 @@ body {
   content: "";
   padding: 0;
 }
+
+/* glimpse hacks */
+.gl-framed > rect {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+  opacity: 1;
+}
+
+#main-graph {
+  width: 720px;
+  /*border: solid 1px #ccc;*/
+}
+
+#global-status-msg {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  padding-right: 14px;
+  text-align: center;
+  width: 100px;
+}
+
+.series-label {
+  cursor: pointer;
+}

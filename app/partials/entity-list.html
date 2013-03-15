@@ -1,8 +1,12 @@
-<h2>Entities</h2>
-<div>{{ loadStatus }}</div>
-<input ng-model="query" type="text"/>
-<ul>
-  <li ng-repeat="entity in entities | filter:query">
-    <a href="#/entities/{{ entity.id }}/checks">{{ entity.label }}</a>
-  </li>
-</ul>
+<h4>ENTITIES<span>{{ loadStatus }}</span></h4>
+<p>
+  <input ng-model="query" type="text" class="input-medium search-query"/>
+</p>
+<div class="well sidebar-nav">
+  <ul class="nav nav-list">
+    <li ng-repeat="entity in entities | filter:query"
+        ng-class="{ active: $state.includes('grapher.entity') && $stateParams.entityId == entity.id }">
+      <a href="#/grapher/entities/{{ entity.id }}/checks">{{ entity.label }}</a>
+    </li>
+  </ul>
+</div>
