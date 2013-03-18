@@ -65,6 +65,7 @@ angular.module('dashboard.directives', [])
       // remove the data source by id when remove button is clicked
       scope.$on('seriesRemoved', function(e, id) {
         graph.data().remove(id);
+        graph.update();
         console.log('data/component removed. id: ' + id);
       });
 
